@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Course Introduction</title>
+<title>课程介绍</title>
 </head>
 <body>
-Course Introduction
+课程介绍
 </body>
 </html>
