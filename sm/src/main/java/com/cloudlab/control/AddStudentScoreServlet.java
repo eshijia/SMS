@@ -10,19 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import com.cloudlab.dao.StudentDAO;
 import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.model.Datagrid;
+import com.cloudlab.model.ScoreRecord;
 import com.cloudlab.model.Student;
 
 /**
  * Servlet implementation class GetUserServlet
  */
-@WebServlet("/AddStudentScore")
+@WebServlet("/AddStudentScore.do")
 public class AddStudentScoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
@@ -37,35 +33,25 @@ public class AddStudentScoreServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf8");
+		
+		String studentId = request.getParameter("studentId");
+		String scoreTypeId = request.getParameter("scoreTypeId");
+		String createTime = request.getParameter("createTime");
+		String comment = request.getParameter("comment");
+		
+		ScoreRecord sr = new ScoreRecord(studentId, scoreTypeId, createTime, comment);
+		StudentDAO userDAO = new StudentDAOImp();    
+		int res = userDAO.save(sr);
 		
 		response.setCharacterEncoding("utf8");  
 		PrintWriter pw = response.getWriter();
 		
-		pw.write("ok");
-		
-//		// TODO Auto-generated method stub
-//		StudentDAO userDAO = new StudentDAOImp();    
-//		List<Student> users = userDAO.getAllUsers();
-//		
-//		Datagrid datagrid = new Datagrid(users.size(), users);
-//		
-//		StringBuffer sb = new StringBuffer();
-//		for(Student user : users) {
-//			sb.append(user.getStu_no()+"  "+"\n");
-//		}  
-//		        
-//		response.setCharacterEncoding("utf8");  
-//		PrintWriter pw = response.getWriter();      
-//
-//		JsonGenerator jsonGenerator = null;
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		try {
-//			jsonGenerator = objectMapper.getJsonFactory().createJsonGenerator(pw);
-//			jsonGenerator.writeObject(datagrid);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
+		if(res > 0) {
+			pw.write("保存加分记录成功");
+		} else {
+			pw.write("保存加分记录失败");
+		}
 	}
 
 	/**

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Student Management</title>
+	<title>Group Management</title>
 	<%@ include file="header.jsp" %>
 	
 	
@@ -20,7 +20,7 @@
 						/*height:80,*/
 						border:true,
 						cache:false,
-						href:'GetStudentScore.do?studentId='+row.stu_id,
+						href:'GetGroup.do?groupId='+row.ast_id,
 						onLoad:function(){
 							$('#dg').datagrid('fixDetailRowHeight',index);
 						}
@@ -35,28 +35,15 @@
 <body>
     
 	<table id="dg" style="width:1130px;height:500px"
-			url="GetStudent.do"
-			pagination="false" sortName="stu_score" sortOrder="desc"
-			title="学生加分信息"
+			url="GetAssistant.do"
+			pagination="false" sortName="ast_id" sortOrder="desc"
+			title="小组信息"
 			singleSelect="true" fitColumns="true">
 		<thead>
 			<tr>
-				<th field="stu_id" width="80" align="center" sortable="true">序号</th>
-				<th field="stu_no" width="80" align="center">学号</th>
-				<th field="stu_name" width="120" align="center">姓名</th>
-				<th field="stu_sex" width="80" align="center">性别</th>
-				<th field="stu_major" width="120" align="center">专业</th>
-				<th field="stu_phone" width="120" align="center">号码</th>
-				
-				<%  
-				User user =(User)application.getAttribute("user");
-				if(user.getU_admin() == 1) {
-					%>
-					<th field="stu_level" width="80" align="center">级别</th>
-					<% 
-				}
-				%>
-				<th field="stu_score" width="80" align="center" sortable="true">分数</th>
+				<th field="ast_id" width="80" align="center" sortable="true">小组编号</th>
+				<th field="ast_name" width="80" align="center">研究生负责人</th>
+				<th field="ast_phone" width="120" align="center">研究生联系方式</th>
 			</tr>
 		</thead>
 	</table>

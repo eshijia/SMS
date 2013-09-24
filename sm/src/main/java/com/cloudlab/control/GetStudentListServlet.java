@@ -16,14 +16,14 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.cloudlab.dao.StudentDAO;
 import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.model.Datagrid;
+import com.cloudlab.model.StudentDatagrid;
 import com.cloudlab.model.Student;
-import com.cloudlab.model.StudentCombo;
+import com.cloudlab.model.Combo;
 
 /**
  * Servlet implementation class GetUserServlet
  */
-@WebServlet("/GetStudentList")
+@WebServlet("/GetStudentList.do")
 public class GetStudentListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class GetStudentListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentDAO userDAO = new StudentDAOImp();    
-		List<StudentCombo> scs = userDAO.getStudentNameList();
+		List<Combo> scs = userDAO.getStudentNameList();
 		
 		response.setCharacterEncoding("utf8");  
 		PrintWriter pw = response.getWriter();      

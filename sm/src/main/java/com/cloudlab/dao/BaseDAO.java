@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 public class BaseDAO {
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://127.0.0.1:3306/sms";
+	private static String url = "jdbc:mysql://cruise.tongji.edu.cn:3306/sms?useUnicode=true&amp;characterEncoding=GBK";
 	private static String user = "xxq";
 	private static String password = "xxq";
 
@@ -37,6 +37,7 @@ public class BaseDAO {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, password);
+			
 			if (conn!= null && !conn.isClosed())
 				System.out.println("Succeeded connecting to the Database!");
 		} catch (SQLException e) {

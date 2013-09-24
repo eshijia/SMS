@@ -7,7 +7,11 @@
  */
 package com.cloudlab.model;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ScoreRecord {
 	int sr_id;
@@ -32,6 +36,23 @@ public class ScoreRecord {
 		this.st = st;
 		this.sr_comment = sr_comment;
 		this.sr_ct = sr_ct;
+	}
+	
+	public ScoreRecord(String studentId, String scoreTypeId, String ct, String comment) {
+		this.sr_student_id = Integer.parseInt(studentId);
+		this.sr_score_type_id = Integer.parseInt(scoreTypeId);
+		
+        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        try {  
+            Date date = sdf.parse(ct);  
+            Timestamp ts = new Timestamp(date.getTime());
+            this.sr_ct = ts;
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        } 
+        
+        this.sr_comment = comment;
+
 	}
 
 	public ScoreType getSt() {

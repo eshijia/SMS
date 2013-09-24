@@ -9,20 +9,15 @@ package com.cloudlab.dao;
 
 import java.util.List;
 
+import com.cloudlab.model.Assistant;
 import com.cloudlab.model.Combo;
 import com.cloudlab.model.ScoreRecord;
 import com.cloudlab.model.Student;
 import com.cloudlab.model.User;
 
-public interface StudentDAO {
-	public List<Student> getAllUsers();
-	public List<ScoreRecord> getStudentScoreDetail(int studentId);
-	public List<Combo> getStudentNameList();
-	public List<Combo> getScoreTypeList();
-	
-	public int validate(User user);
-	
-	public int save(ScoreRecord st);
+public interface GroupDAO {
+	public List<Assistant> getAllAssistants();
+	public List<Student> getStudentListByGroupId(String groupId);
 }
 
 

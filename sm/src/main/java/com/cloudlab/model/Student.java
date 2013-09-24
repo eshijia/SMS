@@ -16,7 +16,31 @@ public class Student {
 	String stu_phone;
 	int stu_level;
 	int stu_score;
+	int stu_grp_leader;
 	
+	public Student(int stu_id, String stu_no, String stu_name, String stu_sex,
+			String stu_major, String stu_phone, int stu_level, int stu_score,
+			int stu_grp_leader) {
+		super();
+		this.stu_id = stu_id;
+		this.stu_no = stu_no;
+		this.stu_name = stu_name;
+		this.stu_sex = stu_sex;
+		this.stu_major = stu_major;
+		this.stu_phone = stu_phone;
+		this.stu_level = stu_level;
+		this.stu_score = stu_score;
+		this.stu_grp_leader = stu_grp_leader;
+	}
+
+	public int getStu_grp_leader() {
+		return stu_grp_leader;
+	}
+
+	public void setStu_grp_leader(int stu_grp_leader) {
+		this.stu_grp_leader = stu_grp_leader;
+	}
+
 	public Student() {}
 	
 	public Student(String stu_no, String stu_name, String stu_sex,
@@ -30,7 +54,7 @@ public class Student {
 	}
 	
 	public Student(int stu_id, String stu_no, String stu_name, String stu_sex,
-			String stu_major, String stu_phone, int stu_level, int stu_score) {
+			String stu_major, String stu_phone, int stu_level) {
 		super();
 		this.stu_id = stu_id;
 		this.stu_no = stu_no;
@@ -39,7 +63,6 @@ public class Student {
 		this.stu_major = stu_major;
 		this.stu_phone = stu_phone;
 		this.stu_level = stu_level;
-		this.stu_score = stu_score;
 	}
 
 	public String getStu_no() {

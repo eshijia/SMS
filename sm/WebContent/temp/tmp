@@ -1,0 +1,29 @@
+style="border-style:solid;border-width:5pt; border-color:blue;"
+
+
+
+function login() {
+		var name = $('#username').val();
+		var pwd = $('#password').val();
+		
+			/* alert(name);
+			alert(pwd); */
+		
+		$.ajax({
+			type: "get",
+			url: "ValidateStudent?username="+name+"&password="+pwd,
+			beforeSend: function(XMLHttpRequest){
+			},
+			success: function(data, textStatus){
+				if(data == 0) {
+					$('#username').val('');
+					$('#password').val('');
+					alert('username or password error');
+				}
+			},
+			complete: function(XMLHttpRequest, textStatus){
+			},
+			error: function(){
+			}
+	});
+	}

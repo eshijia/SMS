@@ -7,37 +7,19 @@
  */
 package com.cloudlab.model;
 
-public class StudentCombo {
+public class Combo {
 	int id;
 	String text;
-//	String selected;
-	
-//	public String getSelected() {
-//		return selected;
-//	}
-//
-//	public void setSelected(String selected) {
-//		this.selected = selected;
-//	}
 
-	public StudentCombo() {
+	public Combo() {
 		
 	}
 	
-	public StudentCombo(int id, String text) {
+	public Combo(int id, String text) {
 		super();
 		this.id = id;
 		this.text = text;
 	}
-	
-	
-	
-//	public StudentCombo(int id, String text, String selected) {
-//		super();
-//		this.id = id;
-//		this.text = text;
-//		this.selected = selected;
-//	}
 
 	public int getId() {
 		return id;

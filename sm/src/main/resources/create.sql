@@ -53,4 +53,25 @@ create table tb_score_type (
 	st_score int
 );
 
+-- if is short for info
+create table tb_info(
+	if_id int primary key auto_increment not null,
+	if_info varchar(200),
+	if_ct timestamp default current_timestamp
+);
+
+
+-- u is short for user
+-- 1 is admin 0 is not admin 
+create table tb_user (
+	u_id int primary key auto_increment not null,
+	u_username varchar(20),
+	u_password varchar(20),
+	u_admin int
+);
+
 commit;
+
+
+
+

@@ -2,65 +2,62 @@ package com.cloudlab.control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
-
+import com.cloudlab.dao.InfoDAO;
 import com.cloudlab.dao.StudentDAO;
+import com.cloudlab.dao.imp.InfoDAOImp;
 import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.filter.ScoreRecordFilter;
-import com.cloudlab.model.ScoreRecord;
+import com.cloudlab.model.Info;
 
 /**
  * Servlet implementation class GetUserServlet
  */
-@WebServlet("/GetStudentScore.do")
-public class GetStudentScoreServlet extends HttpServlet {
+@WebServlet("/AddInfo.do")
+public class AddInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+  
     /**
      * Default constructor. 
      */
-    public GetStudentScoreServlet() {            
+    public AddInfoServlet() {            
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf8");
 		
-		String studentId = (String)request.getParameter("studentId");
+		String createTime = request.getParameter("createTime");
+		String info = request.getParameter("info");
 		
-		StudentDAO userDAO = new StudentDAOImp(); 
-		int _studentId = Integer.parseInt(studentId);
-		     
-		List<ScoreRecord> srs = userDAO.getStudentScoreDetail(_studentId);
+		Info infoObject = new Info(info, createTime);
 		
-		/**
-		 * filter init score record record which is related with sql
-		 */
-		srs= new ScoreRecordFilter(srs).filter();
+		InfoDAO infoDAO = new InfoDAOImp();
+		int res = infoDAO.save(infoObject);
 		
 		response.setCharacterEncoding("utf8");  
-		PrintWriter pw = response.getWriter();      
+		PrintWriter pw = response.getWriter();
 		
-		request.setAttribute("srs", srs);
-		RequestDispatcher rd = request.getRequestDispatcher("ajax/scorerecords.jsp");
-	    rd.forward(request, response);
+		if(res > 0) {
+			pw.write("发布信息成功");
+		} else {
+			pw.write("发布信息`失败");
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
