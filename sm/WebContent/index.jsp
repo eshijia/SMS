@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Course Introduction</title>
 <%@ include file="header.jsp"%>
 <script type="text/javascript">
@@ -65,7 +66,7 @@ ul li {padding-bottom:5px;}
 		<div id="login">
 		
 		<%
-		User user = (User)application.getAttribute("user");
+		User user = (User)session.getAttribute("user");
 		if(user == null) {
 			response.sendRedirect("login.jsp");
 			return;

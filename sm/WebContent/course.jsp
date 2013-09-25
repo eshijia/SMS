@@ -4,6 +4,7 @@
 <head>
 
 <title>课程介绍</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <style type="text/css">
   div {

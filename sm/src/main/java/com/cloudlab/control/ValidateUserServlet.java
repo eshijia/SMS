@@ -47,7 +47,7 @@ public class ValidateUserServlet extends HttpServlet {
 
 		response.setCharacterEncoding("utf8");
 		if(res == 1) {
-			request.getServletContext().setAttribute("user", user);
+			request.getSession().setAttribute("user", user);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");   
 		    rd.forward(request, response);
 		} else {

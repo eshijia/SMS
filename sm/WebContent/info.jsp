@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>Student Management</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
 	

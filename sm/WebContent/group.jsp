@@ -5,6 +5,7 @@
 <html>
 <head>
 	<title>Group Management</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
 	

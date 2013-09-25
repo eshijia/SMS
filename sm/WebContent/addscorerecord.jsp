@@ -6,6 +6,7 @@
 <head>
 
 	<title>添加分数</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
 	<script type="text/javascript">

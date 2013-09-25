@@ -5,6 +5,7 @@
 <html>
 <head>
 	<title>Student Management</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
 	
@@ -49,7 +50,7 @@
 				<th field="stu_phone" width="120" align="center">号码</th>
 				
 				<%  
-				User user =(User)application.getAttribute("user");
+				User user =(User)session.getAttribute("user");
 				if(user.getU_admin() == 1) {
 					%>
 					<th field="stu_level" width="80" align="center">级别</th>

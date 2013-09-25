@@ -3,11 +3,8 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="jquery,ui,easy,easyui,web">
-<meta name="description"
-	content="easyui help you build your web page easily!">
 <title>Login Face</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@ include file="header.jsp"%>
 
 <script type="text/javascript">
@@ -120,7 +117,7 @@ table {
 									
 								<%
 	
-									User user = (User)application.getAttribute("user");
+									User user = (User)session.getAttribute("user");
 									if(user == null) {
 								%>		
 

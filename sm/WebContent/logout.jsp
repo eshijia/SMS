@@ -3,14 +3,14 @@
 
 <html>
 <head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
 	<%
 	
-	if(application.getAttribute("user") != null) {
-		application.removeAttribute("user");
+	if(session.getAttribute("user") != null) {
+		session.removeAttribute("user");
 		response.sendRedirect("login.jsp");
 	}
 	
