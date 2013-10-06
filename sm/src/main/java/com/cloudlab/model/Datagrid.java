@@ -9,13 +9,13 @@ package com.cloudlab.model;
 
 import java.util.List;
 
-public class InfoDatagrid {
+public class Datagrid<T> {
 	public int total;
-	public List<Info> rows;
+	public List<T> rows;
 	
-	public InfoDatagrid() {}
+	public Datagrid() {}
 
-	public InfoDatagrid(int total, List<Info> rows) {
+	public Datagrid(int total, List<T> rows) {
 		super();
 		this.total = total;
 		this.rows = rows;
@@ -29,11 +29,11 @@ public class InfoDatagrid {
 		this.total = total;
 	}
 
-	public List<Info> getRows() {
+	public List<T> getRows() {
 		return rows;
 	}
 
-	public void setRows(List<Info> rows) {
+	public void setRows(List<T > rows) {
 		this.rows = rows;
 	}
 	

@@ -11,12 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import com.cloudlab.dao.StudentDAO;
 import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.filter.ScoreRecordFilter;
+import com.cloudlab.filter.imp.ScoreRecordFilter;
 import com.cloudlab.model.ScoreRecord;
 
 /**
@@ -36,7 +33,6 @@ public class GetStudentScoreServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String studentId = (String)request.getParameter("studentId");
 		
 		StudentDAO userDAO = new StudentDAOImp(); 
@@ -48,6 +44,8 @@ public class GetStudentScoreServlet extends HttpServlet {
 		 * filter init score record record which is related with sql
 		 */
 		srs= new ScoreRecordFilter(srs).filter();
+		
+		System.out.println(srs.size());
 		
 		response.setCharacterEncoding("utf8");  
 		PrintWriter pw = response.getWriter();      

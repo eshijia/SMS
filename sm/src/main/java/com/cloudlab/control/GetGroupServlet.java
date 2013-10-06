@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cloudlab.dao.GroupDAO;
 import com.cloudlab.dao.imp.GroupDAOImp;
-import com.cloudlab.filter.ScoreRecordFilter;
 import com.cloudlab.model.Student;
 
 /**

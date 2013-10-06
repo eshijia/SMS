@@ -5,13 +5,20 @@
  * 日期：2013-9-22
  * Copyright by menuz
  */
-package com.cloudlab.filter;
+package com.cloudlab.filter.imp;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cloudlab.filter.Filter;
 import com.cloudlab.model.ScoreRecord;
 
+/**
+ * 
+ * 此类描述的是： 用于过滤其中init记录
+ * @author: dmnrei@gmail.com
+ * @version: 2013-10-6 下午2:18:21
+ */
 public class ScoreRecordFilter implements Filter{
 	List<ScoreRecord> srs;
 	

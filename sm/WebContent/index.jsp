@@ -96,6 +96,8 @@ ul li {padding-bottom:5px;}
 				<li><a href="#" class="easyui-linkbutton"
 					onclick="addTab('信息发布','info.jsp')">信息发布</a></li>
 				<li><a href="#" class="easyui-linkbutton"
+					onclick="addTab('最近加分','score.jsp')">最近加分</a></li>
+				<li><a href="#" class="easyui-linkbutton"
 					onclick="addTab('学生信息','student.jsp')">学生信息</a></li>
 				<li><a href="#" class="easyui-linkbutton"
 					onclick="addTab('小组信息','group.jsp')">小组信息</a></li>

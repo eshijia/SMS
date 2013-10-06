@@ -43,6 +43,15 @@ create table tb_score_record (
 	sr_comment varchar(100),
 	sr_ct timestamp default current_timestamp
 );
+alter table tb_score_record
+add sr_total int; 
+
+-- srt is short for score record total, equals to sr_total
+create table tb_score_record_total (
+	srt_id int,
+	srt_score int
+)
+
 
 drop table if exists tb_score_type;
 

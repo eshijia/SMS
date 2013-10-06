@@ -15,7 +15,7 @@ import org.codehaus.jackson.JsonEncoding;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.cloudlab.model.StudentDatagrid;
+import com.cloudlab.model.Datagrid;
 import com.cloudlab.model.Student;
 
 public class JsonUtil {
@@ -30,7 +30,7 @@ public class JsonUtil {
 		Student user2 = new Student("1", "2", "3", "4", 1);
 		users.add(user); users.add(user1); users.add(user2);
 		
-		StudentDatagrid datagrid = new StudentDatagrid(3, users);
+		Datagrid datagrid = new Datagrid(3, users);
 		
 		
 		JsonGenerator jsonGenerator = null;

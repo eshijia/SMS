@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 public class BaseDAO {
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://cruise.tongji.edu.cn:3306/sms?useUnicode=true&amp;characterEncoding=GBK";
+	private static String url = "jdbc:mysql://localhost:3306/sms?useUnicode=true&amp;characterEncoding=GBK";
 	private static String user = "xxq";
 	private static String password = "xxq";
 

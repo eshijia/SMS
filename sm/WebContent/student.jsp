@@ -51,6 +51,13 @@
 				
 				<%  
 				User user =(User)session.getAttribute("user");
+				
+				/* if(user == null) {
+					response.sendRedirect("login.jsp");
+					return;
+				} */
+				
+				
 				if(user.getU_admin() == 1) {
 					%>
 					<th field="stu_level" width="80" align="center">级别</th>

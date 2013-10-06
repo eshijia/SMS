@@ -37,6 +37,9 @@ public class TableLoader {
 		
         
         Student user = new Student(stu_id, stu_no, stu_name, stu_sex, stu_major, stu_phone, stu_level);
+        
+        //System.out.println(user);
+        
         return user;
 	}
 	
@@ -104,6 +107,15 @@ public class TableLoader {
 		Combo sc = new Combo(id, text);
 		
 		return sc;
+	}
+	
+	public static ScoreType loadScoreType(java.sql.ResultSet rs) throws SQLException, UnsupportedEncodingException {
+		int id = rs.getInt("st_id");
+		String name = rs.getString("st_name");
+		int score = rs.getInt("st_score"); 
+		
+		ScoreType st = new ScoreType(id, name, score);
+		return st;
 	}
 }
 

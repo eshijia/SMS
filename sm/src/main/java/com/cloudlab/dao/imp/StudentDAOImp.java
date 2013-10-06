@@ -35,6 +35,7 @@ public class StudentDAOImp extends BaseDAO implements StudentDAO {
 		String sql = "select * from tb_student as tb1, "
 				+ " (select tmp.sr_student_id, sum(tmp.st_score) as stu_score from (select * from tb_score_record as sr, tb_score_type as st where sr.sr_score_type_id = st.st_id) as tmp group by tmp.sr_student_id) as tb2 "
 				+ " where tb1.stu_id = tb2.sr_student_id;";
+		
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {

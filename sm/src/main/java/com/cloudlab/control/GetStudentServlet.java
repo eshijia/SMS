@@ -3,6 +3,7 @@ package com.cloudlab.control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,12 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.cloudlab.comparator.ComparatorStudentDesc;
-import com.cloudlab.comparator.ComparatorStudentAsc;
 import com.cloudlab.dao.StudentDAO;
 import com.cloudlab.dao.imp.StudentDAOImp;
+import com.cloudlab.model.Datagrid;
 import com.cloudlab.model.Student;
-import com.cloudlab.model.StudentDatagrid;
 
 /**
  * Servlet implementation class GetUserServlet
@@ -41,32 +40,61 @@ public class GetStudentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
-		System.out.println("query string = " + request.getQueryString());
-		
 		String sort = request.getParameter("sort");
 		String order = request.getParameter("order");
-		System.out.println("sort = " + sort);
-		System.out.println("order = " + order);
+		//System.out.println("sort = " + sort);
+		//System.out.println("order = " + order);
 		
 		StudentDAO userDAO = new StudentDAOImp();
 		List<Student> users = userDAO.getAllUsers();
 		
-		if("desc".equals(order.toLowerCase().trim())) {
-			// System.out.println("---------- desc");
-			ComparatorStudentDesc comparator=new ComparatorStudentDesc();
-			Collections.sort(users, comparator);
-		} else if("asc".equals(order.toLowerCase().trim())) {
-			// System.out.println("---------- asc");
-			ComparatorStudentAsc comparator=new ComparatorStudentAsc();
-			Collections.sort(users, comparator);
+		if(sort.equals("stu_id")) {
+			if(order.trim().equals("asc")) {
+				Collections.sort(users, new Comparator<Student>() {
+	
+					@Override
+					public int compare(Student o1, Student o2) {
+						int value = new Integer(o1.getStu_id()).compareTo(new Integer(o2.getStu_id()));
+						return value;
+					}
+					
+				});
+			} if(order.trim().equals("desc")) {
+				Collections.sort(users, new Comparator<Student>() {
+	
+					@Override
+					public int compare(Student o1, Student o2) {
+						int value = new Integer(o2.getStu_id()).compareTo(new Integer(o1.getStu_id()));
+						return value;
+					}
+					
+				});
+			}
+		} else if(sort.equals("stu_score")){
+			if(order.trim().equals("asc")) {
+				Collections.sort(users, new Comparator<Student>() {
+	
+					@Override
+					public int compare(Student o1, Student o2) {
+						int value = new Integer(o1.getStu_score()).compareTo(new Integer(o2.getStu_score()));
+						return value;
+					}
+					
+				});
+			} if(order.trim().equals("desc")) {
+				Collections.sort(users, new Comparator<Student>() {
+	
+					@Override
+					public int compare(Student o1, Student o2) {
+						int value = new Integer(o2.getStu_score()).compareTo(new Integer(o1.getStu_score()));
+						return value;
+					}
+					
+				});
+			}
 		}
-		
-//		for(Student student : users) {
-//			System.out.println(student.getStu_score());  
-//		}
 
-		StudentDatagrid datagrid = new StudentDatagrid(users.size(), users);
+		Datagrid datagrid = new Datagrid(users.size(), users);
 
 		StringBuffer sb = new StringBuffer();
 		for (Student user : users) {

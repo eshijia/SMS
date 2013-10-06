@@ -121,6 +121,15 @@ public class Student {
 		this.stu_phone = stu_phone;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [stu_id=" + stu_id + ", stu_no=" + stu_no
+				+ ", stu_name=" + stu_name + ", stu_sex=" + stu_sex
+				+ ", stu_major=" + stu_major + ", stu_phone=" + stu_phone
+				+ ", stu_level=" + stu_level + ", stu_score=" + stu_score
+				+ ", stu_grp_leader=" + stu_grp_leader + "]";
+	}
+
 	public int getStu_level() {
 		return stu_level;
 	}

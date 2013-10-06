@@ -7,6 +7,12 @@
  */
 package com.cloudlab.model;
 
+/**
+ * 
+ * 此类描述的是：登陆用户
+ * @author: dmnrei@gmail.com
+ * @version: 2013-10-6 下午2:15:52
+ */
 public class User {
 	public int u_id;
 	public String u_username;

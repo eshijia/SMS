@@ -12,7 +12,7 @@
     
     <%
 	List<ScoreRecord> srs = (ArrayList<ScoreRecord>)request.getAttribute("srs");
-
+    
     int size = srs.size();
 	for(ScoreRecord sr : srs) {
 %>

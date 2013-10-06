@@ -37,12 +37,12 @@
     
 	<table id="dg" style="width:1130px;height:500px"
 			url="GetAssistant.do"
-			pagination="false" sortName="ast_id" sortOrder="desc"
+			pagination="false"
 			title="小组信息"
 			singleSelect="true" fitColumns="true">
 		<thead>
 			<tr>
-				<th field="ast_id" width="80" align="center" sortable="true">小组编号</th>
+				<th field="ast_id" width="80" align="center">小组编号</th>
 				<th field="ast_name" width="80" align="center">研究生负责人</th>
 				<th field="ast_phone" width="120" align="center">研究生联系方式</th>
 			</tr>

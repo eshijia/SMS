@@ -28,5 +28,18 @@ insert into tb_score_record values (null, 22, 1, 'init', null);
 insert into tb_score_record values (null, 23, 1, 'init', null);
 insert into tb_score_record values (null, 24, 1, 'init', null);
 
-
+select * from tb_score_record as sr, tb_score_record_total as srt, tb_student as stu, tb_score_type as st where sr.sr_student_id = stu.stu_id and sr.sr_score_type_id = st.st_id and srt.srt_id = sr.sr_id
 select * from tb_score_record as sr, tb_score_type as st where sr.sr_score_type_id = st.st_id and sr.sr_student_id = 1 order by sr.sr_ct desc;
+select * from tb_score_record as sr, tb_student as stu, tb_score_type as st where sr.sr_student_id = stu.stu_id and sr.sr_score_type_id = st.st_id
+
+int sr_id = rs.getInt("sr_id");
+				String stu_no = rs.getString("stu_no");
+				String stu_name = rs.getString("stu_name");
+				String sr_ct = rs.getString("sr_ct");
+				String st_name = rs.getString("st_name");
+				int st_score = rs.getInt("st_score");
+				int srt_score = rs.getInt("srt_score");
+
+select max(srt_score), sr_id, stu_no, stu_name, sr_ct, st_name, st_score, srt_score from (
+select * from tb_score_record as sr, tb_score_record_total as srt, tb_student as stu, tb_score_type as st where sr.sr_student_id = stu.stu_id and sr.sr_score_type_id = st.st_id and srt.srt_id = sr.sr_id order by sr_id desc
+) as temp group by stu_no;

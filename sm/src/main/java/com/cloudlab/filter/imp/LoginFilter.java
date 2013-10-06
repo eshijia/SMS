@@ -5,7 +5,7 @@
  * 日期：2013-9-22
  * Copyright by menuz
  */
-package com.cloudlab.filter;
+package com.cloudlab.filter.imp;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,6 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 
+ * 此类描述的是：废弃
+ * @author: dmnrei@gmail.com
+ * @version: 2013-10-6 下午2:19:13
+ */
 public class LoginFilter implements Filter {
 	protected FilterConfig filterConfig;
 	java.util.List revokeList;

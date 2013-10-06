@@ -16,7 +16,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.cloudlab.dao.StudentDAO;
 import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.model.StudentDatagrid;
+import com.cloudlab.model.Datagrid;
 import com.cloudlab.model.Student;
 import com.cloudlab.model.Combo;
 

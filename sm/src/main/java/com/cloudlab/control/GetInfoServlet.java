@@ -15,8 +15,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.cloudlab.dao.InfoDAO;
 import com.cloudlab.dao.imp.InfoDAOImp;
+import com.cloudlab.model.Datagrid;
 import com.cloudlab.model.Info;
-import com.cloudlab.model.InfoDatagrid;
 
 /**
  * Servlet implementation class GetUserServlet
@@ -41,7 +41,8 @@ public class GetInfoServlet extends HttpServlet {
 		InfoDAO infoDAO = new InfoDAOImp();
 		List<Info> infos = infoDAO.getAllInfos();
 
-		InfoDatagrid datagrid = new InfoDatagrid(infos.size(), infos);
+		Datagrid<Info> datagrid = new Datagrid(infos.size(), infos);
+//		InfoDatagrid datagrid = new InfoDatagrid(infos.size(), infos);
 
 		response.setCharacterEncoding("utf8");
 		PrintWriter pw = response.getWriter();

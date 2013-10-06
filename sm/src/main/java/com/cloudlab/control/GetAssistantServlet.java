@@ -2,7 +2,6 @@ package com.cloudlab.control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,14 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.cloudlab.comparator.ComparatorStudentAsc;
-import com.cloudlab.comparator.ComparatorStudentDesc;
 import com.cloudlab.dao.GroupDAO;
 import com.cloudlab.dao.imp.GroupDAOImp;
 import com.cloudlab.model.Assistant;
-import com.cloudlab.model.AssistantDatagrid;
-import com.cloudlab.model.Student;
-import com.cloudlab.model.StudentDatagrid;
+import com.cloudlab.model.Datagrid;
 
 /**
  * Servlet implementation class GetUserServlet
@@ -47,7 +42,9 @@ public class GetAssistantServlet extends HttpServlet {
 		GroupDAO groupDAO = new GroupDAOImp();
 		List<Assistant> ass = groupDAO.getAllAssistants();
 		
-		AssistantDatagrid datagrid = new AssistantDatagrid(ass.size(), ass);
+		Datagrid<Assistant> datagrid = new Datagrid(ass.size(), ass);
+		
+//		AssistantDatagrid datagrid = new AssistantDatagrid(ass.size(), ass);
 
 		response.setCharacterEncoding("utf8");
 		PrintWriter pw = response.getWriter();
