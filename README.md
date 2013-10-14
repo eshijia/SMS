@@ -15,5 +15,4 @@ easyui
 Note:
 IE10+,Chrome support
 
-![hihsoft](http://d.hiphotos.baidu.com/album/w%3D2048/sign=dbbad69494cad1c8d0bbfb274b066509/5366d0160924ab187cdf278c34fae6cd7a890b44.jpg "hihsoft")
-
+![qq20131014-2 2x](https://f.cloud.github.com/assets/3674903/1325286/c2c209fa-34c6-11e3-8076-780d6b5d8b7e.png)
