@@ -1,8 +1,8 @@
-package com.cloudlab.control;
+package com.cloudlab.control.scoretype;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cloudlab.dao.StudentDAO;
-import com.cloudlab.dao.imp.StudentDAOImp;
-import com.cloudlab.model.ScoreRecord;
-import com.cloudlab.model.Student;
+import com.cloudlab.dao.ScoreTypeDAO;
+import com.cloudlab.dao.imp.ScoreTypeDAOImp;
+import com.cloudlab.model.ScoreType;
 
 /**
  * Servlet implementation class GetUserServlet
  */
-@WebServlet("/AddStudentScore.do")
-public class AddStudentScoreServlet extends HttpServlet {
+@WebServlet("/DeleteScoreType.do")
+public class DeleteScoreTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
     /**
      * Default constructor. 
      */
-    public AddStudentScoreServlet() {            
+    public DeleteScoreTypeServlet() {            
         // TODO Auto-generated constructor stub
     }
 
@@ -35,22 +34,30 @@ public class AddStudentScoreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf8");
 		
-		String studentId = request.getParameter("studentId");
-		String scoreTypeId = request.getParameter("scoreTypeId");
-		String createTime = request.getParameter("createTime");
-		String comment = request.getParameter("comment");
+		Enumeration<String> strs = request.getParameterNames();
+		while (strs.hasMoreElements()) {
+			String ele = strs.nextElement();
+			System.out.println(ele);
+		}
 		
-		ScoreRecord sr = new ScoreRecord(studentId, scoreTypeId, createTime, comment);
-		StudentDAO userDAO = new StudentDAOImp();    
-		int res = userDAO.save(sr);
+		String id = request.getParameter("id");
+		String st_id = request.getParameter("st_id");
+		String st_name = request.getParameter("st_name");
+		String st_score = request.getParameter("st_score");
 		
-		response.setCharacterEncoding("utf8");  
+		System.out.println("id = " + id);
+		System.out.println("st_id = " + st_id);
+		System.out.println("st_name = " + st_name);
+		System.out.println("st_score = " + st_score);
+		
+		ScoreTypeDAO stDAO = new ScoreTypeDAOImp();
+		int res = stDAO.delete(st_id);
+		
 		PrintWriter pw = response.getWriter();
-		
 		if(res > 0) {
-			pw.write("保存加分记录成功");
+			pw.write("1");
 		} else {
-			pw.write("保存加分记录失败");
+			pw.write("0");
 		}
 	}
 

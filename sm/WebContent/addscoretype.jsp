@@ -20,27 +20,29 @@
 			});
 		});
 	</script>
+
 </head>
 <body>
 
-<form id="ff" action="AddInfo.do" method="post">
+<form id="ff" action="AddScoreType.do" method="post">
     <table>
         <tr>
-            <td>发布的信息:</td>
+            <td>新加分类型:</td>
             <td>
-            	<textarea cols="30" rows="5" name="info" id="info"></textarea>
+            	<input type="text"  id="st_name" name="st_name" class="easyui-validatebox" data-options="required:true"></input>
 			</td>
 		</tr>
 		
 		<tr>
-            <td>发布的时间:</td>
-            <td><input class="easyui-datetimebox"  id="createTime" name="createTime" 
-        data-options="required:true,showSeconds:true" style="width:150px"></input></td>
+            <td>加分预设分值:</td>
+            <td>
+           	 	<input type="text"  id="st_score" name="st_score" class="easyui-validatebox" data-options="required:true"></input>
+        	</td>
         </tr>
         
         <tr>
             <td></td>
-            <td><input type="submit" value="添加新信息"></input></td>
+            <td><input type="submit" value="添加新类型"></input></td>
         </tr>
     </table>
 </form>

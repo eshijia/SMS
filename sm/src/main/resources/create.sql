@@ -46,6 +46,8 @@ create table tb_score_record (
 alter table tb_score_record
 add sr_total int; 
 
+alter table tb_score_record drop column sr_total;
+
 -- srt is short for score record total, equals to sr_total
 create table tb_score_record_total (
 	srt_id int,

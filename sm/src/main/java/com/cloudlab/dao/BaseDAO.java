@@ -15,11 +15,16 @@ import java.sql.Statement;
 
 public class BaseDAO {
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/sms?useUnicode=true&amp;characterEncoding=GBK";
+	
+	//private static String url = "jdbc:mysql://localhost:3306/sms?useUnicode=true&amp;characterEncoding=GBK";
+	//private static String url = "jdbc:mysql://192.168.1.67:3306/sms?useUnicode=true&amp;characterEncoding=utf8";
+	
+//	private static String url = "jdbc:mysql://192.168.1.67:3306/sms?useUnicode=true&characterEncoding=utf8";
+	private static String url = "jdbc:mysql://localhost:3306/sms?useUnicode=true&characterEncoding=utf8";
 	private static String user = "xxq";
 	private static String password = "xxq";
 
-	/**
+	/**   
 	 * 
 	 */
 	public BaseDAO() {
@@ -27,7 +32,7 @@ public class BaseDAO {
 			Class.forName(driver);
 		} catch (Exception e) {
 			System.err.println(e);
-		}
+		}  
 	}
 
 	/**
@@ -70,14 +75,6 @@ public class BaseDAO {
 	        e.printStackTrace();
 	    }
 	}
-	
-	
-//	public static void main(String[] args) {
-////		BaseDAO dao = new BaseDAO();
-////		dao.getConn();
-//		
-//		System.out.println("Hello world");
-//	}
 }
 
 

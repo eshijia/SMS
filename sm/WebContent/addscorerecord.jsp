@@ -18,6 +18,7 @@
 					if(data == '保存加分记录成功') {
 						$("#studentId").attr("value","");
 						$("#scoreTypeId").attr("value","");
+						$("#scoreTypeScore").attr("value","");
 						$("#createTime").attr("value","");
 						$("#comment").val('');
 					}
@@ -41,7 +42,16 @@
         <tr>
             <td>加分类型:</td>
             <td><input class="easyui-combobox" id="scoreTypeId" name="scoreTypeId"
-    data-options="valueField:'id',textField:'text',url:'GetScoreTypeList.do',required:true"></input></td>
+    data-options="valueField:'id',textField:'text',url:'GetScoreTypeList.do',required:true,
+        onSelect: function(rec){
+            var url = 'GetScoreTypeScore.do?st_id='+rec.id;
+            $('#xx').combobox('reload', url);
+        }"></input></td>
+        </tr>
+        
+        <tr>
+        	<td>加分分数:</td>
+            <td><input id="xx" name="xx"></input></td>
         </tr>
         
         <tr>

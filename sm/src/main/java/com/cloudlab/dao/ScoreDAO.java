@@ -15,7 +15,6 @@ public interface ScoreDAO {
 	public List<ScoreRecord> getLastestScore(int n);
 	public List<ScoreRecord> getScore();
 	public List<ScoreRecord> getHighestScore();
-	
 }
 
 

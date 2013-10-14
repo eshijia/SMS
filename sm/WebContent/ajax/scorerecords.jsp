@@ -3,10 +3,10 @@
  
 <table class="dv-table" border="0" style="width:100%;">
     <tr>
-    	<td class="dv-label">加分序号</td>
+    	<!-- <td class="dv-label">加分序号</td> -->
     	<td class="dv-label">加分类型</td>
         <td class="dv-label">加分分数</td>
-        <td class="dv-label">加分备注</td>
+        <!--  <td class="dv-label">加分备注</td>  -->
         <td class="dv-label">加分时间</td>
     </tr>
     
@@ -17,10 +17,10 @@
 	for(ScoreRecord sr : srs) {
 %>
 	<tr>
-        <td><%=size %></td>
+        <!-- <td><%=size %></td>   -->
         <td><%=sr.getSt().getSt_name() %></td>
         <td><%=sr.getSt().getSt_score() %></td>
-        <td><%=sr.getSr_comment() %></td>
+        <!-- <td><%=sr.getSr_comment() %></td>  -->
         <td><%=sr.getSr_ct() %></td>
     </tr>
 <%

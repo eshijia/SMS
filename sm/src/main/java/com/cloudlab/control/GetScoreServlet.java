@@ -138,13 +138,9 @@ public class GetScoreServlet extends HttpServlet {
 				}
 			}
 			
-			
-			//request.getSession().setAttribute("srt_score", 0);
 		}
 		
 		Datagrid<ScoreRecord> datagrid = new Datagrid(srs.size(), srs);
-  		
-//		ScoreRecordDatagrid datagrid = new ScoreRecordDatagrid(srs.size(), srs);
 
 		response.setCharacterEncoding("utf8");
 		PrintWriter pw = response.getWriter();

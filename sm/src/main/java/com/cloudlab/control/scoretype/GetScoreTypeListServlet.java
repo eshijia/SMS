@@ -1,4 +1,4 @@
-package com.cloudlab.control;
+package com.cloudlab.control.scoretype;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,7 +41,8 @@ public class GetScoreTypeListServlet extends HttpServlet {
 		StudentDAO userDAO = new StudentDAOImp();    
 		List<Combo> scs = userDAO.getScoreTypeList();
 		
-		response.setCharacterEncoding("utf8");  
+		//response.setCharacterEncoding("utf8");  
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();      
 
 		JsonGenerator jsonGenerator = null;

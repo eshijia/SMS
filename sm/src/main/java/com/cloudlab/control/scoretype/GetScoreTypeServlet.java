@@ -1,4 +1,7 @@
-package com.cloudlab.control;
+
+
+
+package com.cloudlab.control.scoretype;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,22 +16,23 @@ import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.cloudlab.dao.InfoDAO;
-import com.cloudlab.dao.imp.InfoDAOImp;
+import com.cloudlab.dao.ScoreTypeDAO;
+import com.cloudlab.dao.imp.ScoreTypeDAOImp;
 import com.cloudlab.model.Datagrid;
-import com.cloudlab.model.Info;
+import com.cloudlab.model.ScoreType;
+import com.cloudlab.model.Student;
 
 /**
  * Servlet implementation class GetUserServlet
  */
-@WebServlet("/GetInfo.do")
-public class GetInfoServlet extends HttpServlet {
+@WebServlet("/GetScoreType.do")
+public class GetScoreTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Default constructor.
 	 */
-	public GetInfoServlet() {
+	public GetScoreTypeServlet() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -38,13 +42,11 @@ public class GetInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		InfoDAO infoDAO = new InfoDAOImp();
-		List<Info> infos = infoDAO.getAllInfos();
+		ScoreTypeDAO stDAO = new ScoreTypeDAOImp();
+		List<ScoreType> sts = stDAO.getAllScoreType();
 
-		Datagrid<Info> datagrid = new Datagrid(infos.size(), infos);
-//		InfoDatagrid datagrid = new InfoDatagrid(infos.size(), infos);
-
-		response.setCharacterEncoding("utf8");
+		Datagrid datagrid = new Datagrid(sts.size(), sts);
+		response.setContentType("text/html;charset=UTF-8"); 
 		PrintWriter pw = response.getWriter();
 
 		JsonGenerator jsonGenerator = null;
@@ -70,3 +72,4 @@ public class GetInfoServlet extends HttpServlet {
 	}
 
 }
+

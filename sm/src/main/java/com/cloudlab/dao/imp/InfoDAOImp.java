@@ -93,6 +93,46 @@ public class InfoDAOImp extends BaseDAO implements InfoDAO {
 			return infos;
 	}
 
+	@Override
+	public int update(int if_id, String if_info, String if_ct) {
+		Connection conn = getConn();
+		String sql = "update tb_info set if_info = '"+if_info+"' where if_id = " + if_id;
+		
+		int res = -1;
+		java.sql.Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConn();
+			stmt = conn.createStatement();
+			res = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			releaseSource(conn, stmt, rs);
+		}
+		return res;
+	}
+
+	@Override
+	public int delete(int if_id) {
+		Connection conn = getConn();
+		String sql = "delete from tb_info where if_id = " + if_id;
+
+		int res = -1;
+		java.sql.Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConn();
+			stmt = conn.createStatement();
+			res = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			releaseSource(conn, stmt, rs);
+		}
+		return 0;
+	}
+
 //	@Override
 //	public List<Student> getAllUsers() {
 //		Connection conn = getConn();

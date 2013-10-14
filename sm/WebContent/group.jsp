@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Group Management</title>
+	<title>Group Display</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
@@ -30,15 +30,17 @@
 				}
 			});
 		});
+		
+		$("#dg").style.width = screen.width/32*22;
 	</script>
 	
 </head>
 <body>
     
-	<table id="dg" style="width:1130px;height:500px"
+	<table id="dg" style="height:500px"
 			url="GetAssistant.do"
 			pagination="false"
-			title="小组信息"
+			title="小组信息查询"
 			singleSelect="true" fitColumns="true">
 		<thead>
 			<tr>

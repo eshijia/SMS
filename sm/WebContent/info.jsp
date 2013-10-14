@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Student Management</title>
+	<title>Info Display</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="header.jsp" %>
 	
@@ -11,26 +11,41 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#dg').datagrid({
-				view: detailview,
-				detailFormatter:function(index,row){
-					return '<div id="ddv-' + index + '" style="padding:5px 0"></div>';
+				/* view: detailview, */
+				onClickRow:function(index, data) {
+					/* alert(data.if_info); */
+					$.messager.show({
+						title:'详细内容',
+						msg:data.if_info,
+						timeout:5000,
+						showType:'show',
+						width:500,
+						height:300,
+						style:{
+							right:'',
+							top:document.body.scrollTop+document.documentElement.scrollTop,
+							bottom:''
+						}
+					});
+					
 				}
 			});
 		});
+		
+		$("#dg").style.width = screen.width/32*22;
 	</script>
 	
 </head>
 <body>
-	<table id="dg" style="width:1130px;height:500px"
+	<table id="dg" style="height:500px"
 			url="GetInfo.do"
-			pagination="true"
-			title="信息发布"
+			pagination="false"
+			title="信息发布查询(单击行查看详细内容)"
 			singleSelect="true" fitColumns="false">
 		<thead>
 			<tr>
-				<th field="if_id" width="50">序号</th>
-				<th field="if_info" width="900">发布信息</th>
-				<th field="if_ct" width="180">发布时间</th>
+				<th field="if_ct">发布时间</th>
+				<th field="if_info">发布信息</th>
 			</tr>
 		</thead>
 	</table>

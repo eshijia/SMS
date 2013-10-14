@@ -7,18 +7,28 @@
  */
 package com.cloudlab.model;
 
-public class Combo {
+public class ScoreTypeScoreCombo {
 	int id;
 	String text;
+	String selected;
 	
-	public Combo() {
+	public ScoreTypeScoreCombo() {
 		
 	}
 	
-	public Combo(int id, String text) {
+	public ScoreTypeScoreCombo(int id, String text) {
 		super();
 		this.id = id;
 		this.text = text;
+		selected = "true";
+	}
+
+	public String getSelected() {
+		return selected;
+	}
+
+	public void setSelected(String selected) {
+		this.selected = selected;
 	}
 
 	public int getId() {

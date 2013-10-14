@@ -19,6 +19,9 @@ public interface InfoDAO {
 //	
 	public List<Info> getAllInfos();
 	public int save(Info info);
+	public int update(int if_id, String if_info, String if_ct);
+	public int delete(int if_id);
+	
 }
 
 

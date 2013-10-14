@@ -7,7 +7,6 @@
  */
 package com.cloudlab.model;
 
-import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,6 +15,8 @@ import java.util.Date;
 public class ScoreRecord {
 	int sr_id;
 	int sr_student_id;
+	
+	String sr_student_name;
 	
 	//Student sr_student;
 	int stu_id;
@@ -29,7 +30,17 @@ public class ScoreRecord {
 	int stu_grp_leader;
 	
 	int sr_score_type_id;
+	String sr_score_type_name;
+	int sr_score_type_score;
 	
+	public int getSr_score_type_score() {
+		return sr_score_type_score;
+	}
+
+	public void setSr_score_type_score(int sr_score_type_score) {
+		this.sr_score_type_score = sr_score_type_score;
+	}
+
 	ScoreType st;
 	int st_id;
 	String st_name;
@@ -235,11 +246,15 @@ public class ScoreRecord {
 		this.sr_ct = sr_ct;
 	}
 	
-	public ScoreRecord(String studentId, String scoreTypeId, String ct, String comment) {
+	public ScoreRecord(String studentId, String studentName, String scoreTypeId, String scoreTypeName, String scoreTypeScore, 
+			String ct, String comment) {
 		this.sr_student_id = Integer.parseInt(studentId);
+		this.sr_student_name = studentName;
 		this.sr_score_type_id = Integer.parseInt(scoreTypeId);
+		this.sr_score_type_name = scoreTypeName;
+		this.sr_score_type_score = Integer.parseInt(scoreTypeScore);
 		
-        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");  
         try {  
             Date date = sdf.parse(ct);  
             Timestamp ts = new Timestamp(date.getTime());
@@ -249,7 +264,22 @@ public class ScoreRecord {
         } 
         
         this.sr_comment = comment;
+	}
 
+	public String getSr_student_name() {
+		return sr_student_name;
+	}
+
+	public void setSr_student_name(String sr_student_name) {
+		this.sr_student_name = sr_student_name;
+	}
+
+	public String getSr_score_type_name() {
+		return sr_score_type_name;
+	}
+
+	public void setSr_score_type_name(String sr_score_type_name) {
+		this.sr_score_type_name = sr_score_type_name;
 	}
 
 	public ScoreRecord(int sr_id, int sr_student_id, int sr_score_type_id,

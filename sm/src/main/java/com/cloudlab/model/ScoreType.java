@@ -16,6 +16,11 @@ public class ScoreType {
 		
 	}
 	
+	public ScoreType(String st_name, String st_score) {
+		this.st_name = st_name;
+		this.st_score = Integer.parseInt(st_score);
+	}
+	
 	public ScoreType(int st_id, String st_name, int st_score) {
 		super();
 		this.st_id = st_id;

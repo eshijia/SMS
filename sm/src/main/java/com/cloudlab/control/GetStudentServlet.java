@@ -42,11 +42,9 @@ public class GetStudentServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String sort = request.getParameter("sort");
 		String order = request.getParameter("order");
-		//System.out.println("sort = " + sort);
-		//System.out.println("order = " + order);
 		
 		StudentDAO userDAO = new StudentDAOImp();
-		List<Student> users = userDAO.getAllUsers();
+		List<Student> users = userDAO.getAllUserBasicInfo();
 		
 		if(sort.equals("stu_id")) {
 			if(order.trim().equals("asc")) {
@@ -127,3 +125,4 @@ public class GetStudentServlet extends HttpServlet {
 	}
 
 }
+
